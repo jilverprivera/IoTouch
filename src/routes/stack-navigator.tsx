@@ -4,8 +4,8 @@ import { BottomTabNavigator } from './bottom-tab-navigator';
 import { SignInScreen } from './public/sign-in-screen';
 import supabase from '../utils/lib/supabase';
 import { useAppDispatch, useAppSelector } from '../utils/hooks';
-import { onAuthUser, onSetSession } from '../config/redux/slices';
-import { AUTH_STATUS } from '../interfaces';
+import { AUTH_STATUS } from '../modules/authentication/interfaces/auth-interface';
+import { onAuthUser, onSetSession } from '../modules/authentication/slices/auth-slice';
 
 export type RootStackParamList = {
   SignInScreen: undefined;

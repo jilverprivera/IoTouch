@@ -1,4 +1,3 @@
-export * from './auth-interface';
 export * from './common-interface';
 export * from './dashboard-interface';
 export * from './database';
