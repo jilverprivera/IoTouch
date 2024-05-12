@@ -38,31 +38,28 @@ export type Database = {
       };
       area: {
         Row: {
-          area_type_id: number;
+          area_type_id: string;
           created_at: string;
-          creator_uuid: string | null;
-          id: number;
+          creator_id: string;
+          id: string;
           label: string;
           updated_at: string;
-          uuid: string;
         };
         Insert: {
-          area_type_id: number;
+          area_type_id: string;
           created_at?: string;
-          creator_uuid?: string | null;
-          id?: number;
+          creator_id: string;
+          id: string;
           label: string;
           updated_at?: string;
-          uuid: string;
         };
         Update: {
-          area_type_id?: number;
+          area_type_id?: string;
           created_at?: string;
-          creator_uuid?: string | null;
-          id?: number;
+          creator_id?: string;
+          id?: string;
           label?: string;
           updated_at?: string;
-          uuid?: string;
         };
         Relationships: [
           {
@@ -73,76 +70,70 @@ export type Database = {
             referencedColumns: ['id'];
           },
           {
-            foreignKeyName: 'area_creator_uuid_fkey';
-            columns: ['creator_uuid'];
+            foreignKeyName: 'area_creator_id_fkey';
+            columns: ['creator_id'];
             isOneToOne: false;
             referencedRelation: 'user';
-            referencedColumns: ['uuid'];
+            referencedColumns: ['id'];
           },
         ];
       };
       area_type: {
         Row: {
           color: string;
-          created_at: string;
           icon: string;
-          id: number;
+          id: string;
           label: string;
         };
         Insert: {
           color?: string;
-          created_at?: string;
           icon: string;
-          id?: number;
+          id: string;
           label: string;
         };
         Update: {
           color?: string;
-          created_at?: string;
           icon?: string;
-          id?: number;
+          id?: string;
           label?: string;
         };
         Relationships: [];
       };
       controller: {
         Row: {
-          area_uuid: string;
-          controller_type_id: number;
+          area_id: string | null;
+          controller_type_id: string;
           created_at: string;
-          creator_uuid: string;
-          id: number;
+          creator_id: string;
+          id: string;
           label: string;
           updated_at: string;
-          uuid: string;
         };
         Insert: {
-          area_uuid: string;
-          controller_type_id: number;
+          area_id?: string | null;
+          controller_type_id: string;
           created_at?: string;
-          creator_uuid: string;
-          id?: number;
+          creator_id: string;
+          id: string;
           label: string;
           updated_at?: string;
-          uuid: string;
         };
         Update: {
-          area_uuid?: string;
-          controller_type_id?: number;
+          area_id?: string | null;
+          controller_type_id?: string;
           created_at?: string;
-          creator_uuid?: string;
-          id?: number;
+          creator_id?: string;
+          id?: string;
           label?: string;
           updated_at?: string;
-          uuid?: string;
         };
         Relationships: [
           {
-            foreignKeyName: 'controller_area_uuid_fkey';
-            columns: ['area_uuid'];
+            foreignKeyName: 'controller_area_id_fkey';
+            columns: ['area_id'];
             isOneToOne: false;
             referencedRelation: 'area';
-            referencedColumns: ['uuid'];
+            referencedColumns: ['id'];
           },
           {
             foreignKeyName: 'controller_controller_type_id_fkey';
@@ -152,30 +143,27 @@ export type Database = {
             referencedColumns: ['id'];
           },
           {
-            foreignKeyName: 'controller_creator_uuid_fkey';
-            columns: ['creator_uuid'];
+            foreignKeyName: 'controller_creator_id_fkey';
+            columns: ['creator_id'];
             isOneToOne: false;
             referencedRelation: 'user';
-            referencedColumns: ['uuid'];
+            referencedColumns: ['id'];
           },
         ];
       };
       controller_type: {
         Row: {
-          created_at: string;
-          id: number;
+          id: string;
           key: string;
           label: string;
         };
         Insert: {
-          created_at?: string;
-          id?: number;
+          id: string;
           key: string;
           label: string;
         };
         Update: {
-          created_at?: string;
-          id?: number;
+          id?: string;
           key?: string;
           label?: string;
         };
@@ -183,74 +171,71 @@ export type Database = {
       };
       data: {
         Row: {
-          controller_uuid: string | null;
+          controller_id: string | null;
           created_at: string;
           data: Json;
-          id: number;
+          id: string;
         };
         Insert: {
-          controller_uuid?: string | null;
+          controller_id?: string | null;
           created_at?: string;
           data: Json;
-          id?: number;
+          id: string;
         };
         Update: {
-          controller_uuid?: string | null;
+          controller_id?: string | null;
           created_at?: string;
           data?: Json;
-          id?: number;
+          id?: string;
         };
         Relationships: [
           {
-            foreignKeyName: 'data_controller_uuid_fkey';
-            columns: ['controller_uuid'];
+            foreignKeyName: 'data_controller_id_fkey';
+            columns: ['controller_id'];
             isOneToOne: false;
             referencedRelation: 'controller';
-            referencedColumns: ['uuid'];
+            referencedColumns: ['id'];
           },
         ];
       };
       device: {
         Row: {
           active: boolean;
-          controller_uuid: string;
+          controller_id: string | null;
           created_at: string;
-          device_type_id: number;
-          id: number;
+          device_type_id: string;
+          id: string;
           label: string;
           updated_at: string;
-          uuid: string;
           value: number | null;
         };
         Insert: {
           active?: boolean;
-          controller_uuid: string;
+          controller_id?: string | null;
           created_at?: string;
-          device_type_id: number;
-          id?: number;
+          device_type_id: string;
+          id: string;
           label: string;
           updated_at?: string;
-          uuid: string;
           value?: number | null;
         };
         Update: {
           active?: boolean;
-          controller_uuid?: string;
+          controller_id?: string | null;
           created_at?: string;
-          device_type_id?: number;
-          id?: number;
+          device_type_id?: string;
+          id?: string;
           label?: string;
           updated_at?: string;
-          uuid?: string;
           value?: number | null;
         };
         Relationships: [
           {
-            foreignKeyName: 'device_controller_uuid_fkey';
-            columns: ['controller_uuid'];
+            foreignKeyName: 'device_controller_id_fkey';
+            columns: ['controller_id'];
             isOneToOne: false;
             referencedRelation: 'controller';
-            referencedColumns: ['uuid'];
+            referencedColumns: ['id'];
           },
           {
             foreignKeyName: 'device_device_type_id_fkey';
@@ -263,82 +248,195 @@ export type Database = {
       };
       device_type: {
         Row: {
-          created_at: string;
-          id: number;
+          id: string;
+          key: string;
           label: string;
         };
         Insert: {
-          created_at?: string;
-          id?: number;
+          id: string;
+          key?: string;
           label: string;
         };
         Update: {
-          created_at?: string;
-          id?: number;
+          id?: string;
+          key?: string;
           label?: string;
         };
         Relationships: [];
+      };
+      roommate: {
+        Row: {
+          created_at: string;
+          deleted: boolean;
+          first_roommate_id: string;
+          secondary_roommate_id: string;
+          updated_at: string;
+        };
+        Insert: {
+          created_at?: string;
+          deleted?: boolean;
+          first_roommate_id: string;
+          secondary_roommate_id: string;
+          updated_at?: string;
+        };
+        Update: {
+          created_at?: string;
+          deleted?: boolean;
+          first_roommate_id?: string;
+          secondary_roommate_id?: string;
+          updated_at?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: 'roommate_first_roommate_id_fkey';
+            columns: ['first_roommate_id'];
+            isOneToOne: false;
+            referencedRelation: 'user';
+            referencedColumns: ['id'];
+          },
+          {
+            foreignKeyName: 'roommate_secondary_roommate_id_fkey';
+            columns: ['secondary_roommate_id'];
+            isOneToOne: false;
+            referencedRelation: 'user';
+            referencedColumns: ['id'];
+          },
+        ];
+      };
+      roommate_requests: {
+        Row: {
+          canceled: boolean;
+          created_at: string;
+          receiver_id: string;
+          sender_id: string;
+          updated_at: string;
+        };
+        Insert: {
+          canceled?: boolean;
+          created_at?: string;
+          receiver_id: string;
+          sender_id: string;
+          updated_at?: string;
+        };
+        Update: {
+          canceled?: boolean;
+          created_at?: string;
+          receiver_id?: string;
+          sender_id?: string;
+          updated_at?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: 'roommate_requests_receiver_id_fkey';
+            columns: ['receiver_id'];
+            isOneToOne: false;
+            referencedRelation: 'user';
+            referencedColumns: ['id'];
+          },
+          {
+            foreignKeyName: 'roommate_requests_sender_id_fkey';
+            columns: ['sender_id'];
+            isOneToOne: false;
+            referencedRelation: 'user';
+            referencedColumns: ['id'];
+          },
+        ];
       };
       user: {
         Row: {
           created_at: string;
           first_name: string;
-          id: number;
-          last_name: string | null;
-          location: string | null;
+          first_surname: string;
+          id: string;
+          second_name: string | null;
+          second_surname: string | null;
           updated_at: string;
-          uuid: string;
         };
         Insert: {
           created_at?: string;
           first_name: string;
-          id?: number;
-          last_name?: string | null;
-          location?: string | null;
+          first_surname: string;
+          id: string;
+          second_name?: string | null;
+          second_surname?: string | null;
           updated_at?: string;
-          uuid: string;
         };
         Update: {
           created_at?: string;
           first_name?: string;
-          id?: number;
-          last_name?: string | null;
-          location?: string | null;
+          first_surname?: string;
+          id?: string;
+          second_name?: string | null;
+          second_surname?: string | null;
           updated_at?: string;
-          uuid?: string;
         };
         Relationships: [];
       };
-      users_in_areas: {
+      user_individual: {
         Row: {
-          area_uuid: string;
-          assigned_at: string;
-          user_uuid: string;
+          full_name: string | null;
+          location: string | null;
+          location_hash: string | null;
+          user_id: string;
         };
         Insert: {
-          area_uuid: string;
-          assigned_at?: string;
-          user_uuid: string;
+          full_name?: string | null;
+          location?: string | null;
+          location_hash?: string | null;
+          user_id: string;
         };
         Update: {
-          area_uuid?: string;
-          assigned_at?: string;
-          user_uuid?: string;
+          full_name?: string | null;
+          location?: string | null;
+          location_hash?: string | null;
+          user_id?: string;
         };
         Relationships: [
           {
-            foreignKeyName: 'users_in_areas_area_uuid_fkey';
-            columns: ['area_uuid'];
+            foreignKeyName: 'user_individual_user_id_fkey';
+            columns: ['user_id'];
+            isOneToOne: true;
+            referencedRelation: 'user';
+            referencedColumns: ['id'];
+          },
+        ];
+      };
+      users_in_areas: {
+        Row: {
+          area_id: string;
+          assigned_at: string;
+          role: Database['public']['Enums']['role'];
+          updated_at: string;
+          user_id: string;
+        };
+        Insert: {
+          area_id: string;
+          assigned_at?: string;
+          role?: Database['public']['Enums']['role'];
+          updated_at?: string;
+          user_id: string;
+        };
+        Update: {
+          area_id?: string;
+          assigned_at?: string;
+          role?: Database['public']['Enums']['role'];
+          updated_at?: string;
+          user_id?: string;
+        };
+        Relationships: [
+          {
+            foreignKeyName: 'users_in_areas_area_id_fkey';
+            columns: ['area_id'];
             isOneToOne: false;
             referencedRelation: 'area';
-            referencedColumns: ['uuid'];
+            referencedColumns: ['id'];
           },
           {
-            foreignKeyName: 'users_in_areas_user_uuid_fkey';
-            columns: ['user_uuid'];
+            foreignKeyName: 'users_in_areas_user_id_fkey';
+            columns: ['user_id'];
             isOneToOne: false;
             referencedRelation: 'user';
-            referencedColumns: ['uuid'];
+            referencedColumns: ['id'];
           },
         ];
       };
@@ -350,7 +448,7 @@ export type Database = {
       [_ in never]: never;
     };
     Enums: {
-      [_ in never]: never;
+      role: 'ADMIN' | 'EDITOR' | 'VIEWER';
     };
     CompositeTypes: {
       [_ in never]: never;
@@ -361,9 +459,7 @@ export type Database = {
 type PublicSchema = Database[Extract<keyof Database, 'public'>];
 
 export type Tables<
-  PublicTableNameOrOptions extends
-    | keyof (PublicSchema['Tables'] & PublicSchema['Views'])
-    | { schema: keyof Database },
+  PublicTableNameOrOptions extends keyof (PublicSchema['Tables'] & PublicSchema['Views']) | { schema: keyof Database },
   TableName extends PublicTableNameOrOptions extends { schema: keyof Database }
     ? keyof (Database[PublicTableNameOrOptions['schema']]['Tables'] &
         Database[PublicTableNameOrOptions['schema']]['Views'])
