@@ -22,15 +22,11 @@ export function BottomTabNavigator() {
         headerShown: false,
         headerShadowVisible: false,
         tabBarStyle: {
-          borderRadius: RADIUS.m,
-          position: 'absolute',
-          bottom: SPACING.m,
-          right: SPACING.m,
-          left: SPACING.m,
           elevation: 0,
-          height: 64 - 8,
-          borderTopColor: 'transparent',
-          backgroundColor: 'white',
+          height: 64,
+          borderTopWidth: 1,
+          borderTopColor: '#404040',
+          backgroundColor: '#171717',
         },
       }}>
       <Tab.Screen

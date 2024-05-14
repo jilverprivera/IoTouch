@@ -1,5 +1,5 @@
 import { Text } from 'react-native';
-import { Container } from '../../components/layout';
+import { Container } from '../../components/layout/container';
 
 export const DeviceScreen = () => {
   return (
