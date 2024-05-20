@@ -10,11 +10,11 @@ type props = {
 export const TabBarIcon = ({ iconName, focused, title }: props) => {
   return (
     <View className={`flex items-center justify-center`}>
-      <MaterialIcons name={iconName as any} size={28} color={focused ? '#000' : '#c4c4c4'} />
+      <MaterialIcons name={iconName as any} size={28} color={focused ? '#d4d4d4' : '#525252'} />
       <Text
         style={{
           fontSize: 10,
-          color: focused ? '#000' : '#c4c4c4',
+          color: focused ? '#d4d4d4' : '#525252',
         }}>
         {title}
       </Text>

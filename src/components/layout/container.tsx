@@ -7,7 +7,8 @@ type props = {
 
 export const Container = ({ children, initAtStart = false }: props) => {
   return (
-    <SafeAreaView className={`flex-1 items-center  bg-gray-100 ${initAtStart ? 'justify-start' : '  justify-center'}`}>
+    <SafeAreaView
+      className={`flex-1 items-center bg-neutral-950 ${initAtStart ? 'justify-start' : '  justify-center'}`}>
       {children}
     </SafeAreaView>
   );

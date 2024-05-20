@@ -31,7 +31,7 @@ export const OnboardingScreen = () => {
       const onboarding = { complete: true };
       await AsyncStorage.setItem('onboarding', JSON.stringify(onboarding));
       dispatch(setOnboarding(onboarding));
-      navigation.navigate('SignInScreen');
+      navigation.navigate('SignUpScreen');
     }
     if (!active) {
       setActive(true);

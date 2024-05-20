@@ -31,7 +31,7 @@ export default function App() {
   return (
     <Provider store={store}>
       <NavigationContainer>
-        <StatusBar style="auto" animated={true} />
+        <StatusBar style="auto" translucent={true} animated={true} />
         <NativeStackNavigator />
       </NavigationContainer>
     </Provider>

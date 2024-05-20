@@ -1,14 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { commonSlice, dashboardSlice } from './slices';
+import { layoutSlice } from './slices/layout-slice';
+import { commonSlice } from './slices';
 import { authSlice } from '../../modules/authentication/slices/auth-slice';
 
 const store = configureStore({
   reducer: {
-    [authSlice.name]: authSlice.reducer,
+    [layoutSlice.name]: layoutSlice.reducer,
     [commonSlice.name]: commonSlice.reducer,
-    [dashboardSlice.name]: dashboardSlice.reducer,
+    [authSlice.name]: authSlice.reducer,
   },
-
   middleware: (getDefaultMiddleware) => getDefaultMiddleware({ serializableCheck: false }),
 });
 

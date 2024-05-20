@@ -1,5 +1,6 @@
 import { FieldErrors, FieldValues } from 'react-hook-form';
 import { Text, TextInput, View, KeyboardTypeOptions } from 'react-native';
+import { FONT_FAMILY } from '../../utils/constants';
 
 type props<T extends FieldValues> = {
   label: string;
@@ -25,8 +26,10 @@ export function CustomTextInput<T extends FieldValues>({
   setValue,
 }: props<T>) {
   return (
-    <View className="w-full mx-auto">
-      <Text className="pb-1 font-medium">{label}</Text>
+    <View className="w-full mx-auto mb-4">
+      <Text className="pb-1 text-base text-white" style={{ fontFamily: FONT_FAMILY.semibold }}>
+        {label}
+      </Text>
       <TextInput
         id={name as string}
         key={name as string}
@@ -39,7 +42,7 @@ export function CustomTextInput<T extends FieldValues>({
         onChangeText={(value) => setValue(name, value)}
         defaultValue={getValues(name)}
         editable={editable}
-        className="py-2 px-4 rounded-lg bg-white"
+        className="py-2.5 px-4 rounded-xl bg-neutral-800 border border-neutral-800 text-lg text-neutral-200"
       />
       {errors[name]?.message && typeof errors[name]?.message === 'string' && (
         <Text className="my-2">{errors[name]?.message as string}</Text>

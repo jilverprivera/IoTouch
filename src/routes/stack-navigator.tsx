@@ -61,8 +61,8 @@ const NativeStackNavigator = () => {
           <NativeStack.Screen name="BottomTabNavigator" component={BottomTabNavigator} />
         ) : onboarding.complete === true ? (
           <>
-            <NativeStack.Screen name="SignUpScreen" component={SignUpScreen} />
             <NativeStack.Screen name="SignInScreen" component={SignInScreen} />
+            <NativeStack.Screen name="SignUpScreen" component={SignUpScreen} />
           </>
         ) : (
           <NativeStack.Screen name="OnboardingScreen" component={OnboardingScreen} />

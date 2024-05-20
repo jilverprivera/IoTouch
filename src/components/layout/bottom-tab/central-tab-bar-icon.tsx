@@ -9,11 +9,11 @@ type props = {
 export const CentralTabBarIcon = ({ iconName, focused }: props) => {
   return (
     <View
-      className={`flex justify-center items-center rounded-2xl
+      className={`flex justify-center items-center rounded-full
         ${Platform.OS === 'ios' ? 'w-12 h-12 -top-3' : 'w-16 h-16 -top-6'}
-        ${focused ? 'bg-gray-800' : 'bg-gray-300'}
+        ${focused ? 'bg-neutral-700 ' : 'bg-neutral-800'}
       `}>
-      <MaterialIcons name={iconName as any} size={32} color={focused ? '#FFF' : '#000'} />
+      <MaterialIcons name={iconName as any} size={32} color={focused ? '#d4d4d4' : '#525252'} />
     </View>
   );
 };

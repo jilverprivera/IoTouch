@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { AUTH_STATUS, AuthSlice, Session } from '../interfaces/auth-interface';
 
 const initialState: AuthSlice = {
-  status: AUTH_STATUS['not-authenticated'],
+  status: AUTH_STATUS['checking'],
   userData: null,
   session: null,
   loading: false,
@@ -19,6 +19,9 @@ export const authSlice = createSlice({
     onAuthUser: (state) => {
       state.status = AUTH_STATUS.authenticated;
     },
+    onLogoutUser: (state) => {
+      state.status = AUTH_STATUS['not-authenticated'];
+    },
     onClearAuthUser: (state) => {
       state.status = AUTH_STATUS['not-authenticated'];
     },
@@ -34,4 +37,5 @@ export const authSlice = createSlice({
   },
 });
 
-export const { onSetSession, onAuthUser, onClearAuthUser, onSetUserData, onClearSession } = authSlice.actions;
+export const { onSetSession, onAuthUser, onLogoutUser, onClearAuthUser, onSetUserData, onClearSession } =
+  authSlice.actions;

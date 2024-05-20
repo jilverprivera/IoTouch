@@ -1,2 +1,2 @@
 export * from './common-slice';
-export * from './dashboard.slice';
+export * from './layout-slice';
